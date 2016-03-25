@@ -6,19 +6,30 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<body>
+<body class="container">
 <div class="row">
-	<div class="col-md-12 text-center">
+	<div class="col-md-8 col-md-offset-2 text-center header">
 		<form id="city-form">
 				<input type="text" id="searchText" class="typeahead" placeholder="Search a City">
 				<input type="submit" class="btn btn-warning" value="search">
 		</form>
 	</div>
 </div>
-<canvas id="current-temp">
-	<!-- The temperature canvas style!	 -->
+<div class="row">
+	<div class="col-md-8 col-md-offset-2 weather-box">
+		<div class="row">
+			<div id="weather-grid" class="col-sm-12">
+				<!-- Add in the HTML here via jQuery!! -->
+			</div>	
 
-</canvas>
+			<canvas id="current-temp">
+			<!-- The temperature canvas style!	 -->
+			</canvas>
+	
+		</div>
+	</div>
+</div>
+		
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
