@@ -3,9 +3,14 @@
 	margin: 50px;
 }
 
+body{
+	background-image: url(http://openwalls.com/image/11539/yellow_flowers_field_1920x1200.jpg);
+}
+
 .weather-box{
 	border: 1px solid black;
 	background-color:#80ff80;
+	opacity: .75;
 }
 
 .header{

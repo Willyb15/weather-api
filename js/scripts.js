@@ -19,7 +19,7 @@ $(document).ready(function(){
 		var newHTML = ' ';
 
 
-		
+		var cityDefault = "Atlanta";
 		var weatherHumid = "Humidity: " + weatherData.main.humidity;
 		var weatherMax = "Max Temp: " + weatherData.main.temp_max;
 		var weatherMin = "Min Temp " + weatherData.main.temp_min;
@@ -32,6 +32,7 @@ $(document).ready(function(){
 			newHTML += '<p>' + weatherArray[i] + '</p>';
 			newHTML += '</div>';	
 		}
+		newHTML += '<div col-sm-3 text-center weather-info' + '<p>' + cityDefault + '<p>' + '</div>'; 
 		
 		$('#weather-grid').html(newHTML);
 
@@ -73,7 +74,7 @@ $(document).ready(function(){
 			context.fillStyle = "#0000ff";
 			context.textBaseLine = "bottom";
 			context.fillText(currTemp, 175-70, (85-70)*6);
-			currPerc+= .01;
+			currPerc+= .05;
 			if(currPerc < currTemp/100){
 				requestAnimationFrame(function(){
 					animate(currPerc);
@@ -93,6 +94,7 @@ $(document).ready(function(){
 
 		$.getJSON(searchURL, function(cityData){
 			var currTemp = cityData.main.temp;
+			console.log(cityData);
 			console.log(currTemp);
 			var canvas = $('#current-temp');
 			var context = canvas[0].getContext('2d');
@@ -101,19 +103,23 @@ $(document).ready(function(){
 			var newHTML = ' ';
 
 
-			
+			var cityName = cityData.name;
+			console.log(cityData.name);
 			var weatherHumid = "Humidity: " + cityData.main.humidity;
 			var weatherMax = "Max Temp: " + cityData.main.temp_max;
 			var weatherMin = "Min Temp " + cityData.main.temp_min;
 			var weatherPress = "Pressure: " + cityData.main.pressure;
+			var windSpeed = cityData.wind.speed;
+			console.log(windSpeed);
 
 			tempArray.push(weatherHumid, weatherMax, weatherMin, weatherPress);
 			for(var i=0; i<tempArray.length; i++){
 						
-				newHTML += '<div class="col-sm-3">';
+				newHTML += '<div class="col-sm-3 weather-info">';
 				newHTML += '<p>' + tempArray[i] + '</p>';
-				newHTML += '</div>';	
+				newHTML += '</div>';
 			}
+			newHTML += '<div col-sm-3 text-center weather-info' + '<p>' + cityName +'<p>' + '</div>'; 	
 		
 		$('#weather-grid').html(newHTML);
 
@@ -136,6 +142,7 @@ $(document).ready(function(){
 				// set the font color of our temp to blue
 				context.fillStyle = "#0000ff";
 				context.textBaseLine = "bottom";
+				context.fillText("Current Temp", 175-20, (85-10)*6);
 				context.fillText(currTemp, 175-70, (85-70)*6);
 				currPerc+= .01;
 				if(currPerc < currTemp/100){
