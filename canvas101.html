@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css" media="screen">
+		canvas{
+			border: red solid 1px;
+			margin: 30px;
+		}
+		
+	</style>
+</head>
+<body>
+	
+	<canvas id="the-canvas" height="500px" width="500px"></canvas>	
+	
+	<script type="text/javascript">
+		
+		var canvas = document.getElementById('the-canvas');
+		var context = canvas.getContext('2d');
+		console.log(canvas);
+		console.dir(context);
+		
+		// context.strokeStyle = "#00ff00";
+		// context.beginPath();
+		// context.moveTo(50,0);
+		// context.lineTo(100,100);
+		// context.lineTo(200,200);
+		// context.lineTo(300,100);
+		// context.lineTo(100,200);
+		// context.lineTo(300,150);
+		// context.lineTo(100,100);
+
+
+		// context.stroke();
+		
+		// context.fillStyle = "#0000ff";
+		// context.beginPath();
+		// context.arc(175, 175, 50,0*Math.PI,1.5*Math.PI);
+		// context.fill();	
+
+		// context.beginPath();
+		// context.rect(300, 20, 100, 200);
+		// context.stroke();
+
+		// context.beginPath();
+		// context.rect(200, 300, 100, 100);
+		// context.stroke();
+
+		var x = 150;
+		var y = 150;
+		var radius = 10;
+		var endArc = 0;
+		var r = 0;
+		var g = 0;
+		var b = 0;
+
+	function draw(){
+		context.fillStyle = "#" + r + g +b;
+			context.clearRect(0,0,500,500);
+			context.beginPath();
+			context.arc(x, y, 10, 0, Math.PI*2);
+			context.fill();
+			x+=4;
+			y+=2;
+			radius += 10;
+			endArc += .1;
+			r++;
+			g++;
+			b++;
+	}
+
+		var ballInt = setInterval(draw, 500);
+
+
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
