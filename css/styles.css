@@ -8,19 +8,39 @@ body{
 }
 
 .weather-box{
-	border: 1px solid black;
-	background-color:#80ff80;
-	opacity: .75;
+
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
 }
+
 
 .header{
 	background-color: black;
 }
 
-.weather-info{
+.weather-box p{
 	font-size:20px;
+	font-weight: bold;
+    color: black;
+    opacity: 100;
+}
+	
+
+.col-sm-12 column {
+	display: inline-block;
 }
 
 .city{
 	font-size:60px;
+	font-weight: 900;
+	border: 10px solid black;
+	
 }
+
+.city p{
+
+
+}
+

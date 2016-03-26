@@ -43,7 +43,7 @@ $(document).ready(function(){
 		}
 		newHTML += '<div class="col-sm-4 text-center weather-info"' + '<p>' + weatherIcon + iconDes + '<p>' + '</div>'; 
 		newHTML += '<div class="row">'
-		newHTML += '<div class="col-sm-12 text-center weather-info city"' + '<p>' + cityDefault + '<p>' + '</div>'; 
+		newHTML += '<div class="col-sm-6 col-sm-offset-3 text-center weather-info city"' + '<p>' + cityDefault + '<p>' + '</div>'; 
 		newHTML += '</div>'
 		newHTML +=	'<div class="col-sm-12 text-center weather-info">' + "<p>Current Temp: <p>" +'</div>';
 		
@@ -129,7 +129,7 @@ $(document).ready(function(){
 			}
 			newHTML += '<div class="col-sm-4 text-center weather-info"' + '<p>' + weatherIcon + iconDes + '<p>' + '</div>'; 
 			newHTML += '<div class="row">'
-			newHTML += '<div class="col-sm-12 text-center weather-info city"' + '<p>' + cityName + '<p>' + '</div>'; 
+			newHTML += '<div class="col-sm-6 col-sm-offset-3 text-center weather-info city"' + '<p>' + cityName + '<p>' + '</div>'; 
 			newHTML += '</div>'	
 			newHTML +=	'<div class="col-sm-12 text-center">' + "<p>Current Temp: <p>" +'</div>';
 			
