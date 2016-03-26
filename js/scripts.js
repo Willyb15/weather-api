@@ -45,6 +45,7 @@ $(document).ready(function(){
 		newHTML += '<div class="row">'
 		newHTML += '<div class="col-sm-12 text-center weather-info city"' + '<p>' + cityDefault + '<p>' + '</div>'; 
 		newHTML += '</div>'
+		newHTML +=	'<div class="col-sm-12 text-center weather-info">' + "<p>Current Temp: <p>" +'</div>';
 		
 		$('#weather-grid').html(newHTML);
 
@@ -97,7 +98,7 @@ $(document).ready(function(){
 	$('#city-form').submit(function(event){
 		var cityInput = $('#searchText').val();
 		var searchURL = "http://api.openweathermap.org/data/2.5/weather?q=" + encodeURI(cityInput) + "&units=imperial&APPID=" + apiKey;
-		console.log(searchURL);
+		// console.log(searchURL);
 		tempArray = [];
 
 		$.getJSON(searchURL, function(cityData){
@@ -107,12 +108,9 @@ $(document).ready(function(){
 			var canvas = $('#current-temp');
 			var context = canvas[0].getContext('2d');
 			var currPerc = 0;
-
 			var newHTML = ' ';
-
-
 			var cityName = cityData.name;
-			console.log(cityData.name);
+			// console.log(cityData.name);
 			var weatherHumid = "Humidity: " + cityData.main.humidity;
 			var weatherMax = "Max Temp: " + cityData.main.temp_max;
 			var weatherMin = "Min Temp " + cityData.main.temp_min;
@@ -129,13 +127,28 @@ $(document).ready(function(){
 				newHTML += '<p>' + tempArray[i] + '</p>';
 				newHTML += '</div>';
 			}
-		newHTML += '<div class="col-sm-4 text-center weather-info"' + '<p>' + weatherIcon + iconDes + '<p>' + '</div>'; 
-		newHTML += '<div class="row">'
-		newHTML += '<div class="col-sm-12 text-center weather-info city"' + '<p>' + cityName + '<p>' + '</div>'; 
-		newHTML += '</div>'	
-		newHTML +=	'<div class="col-sm-12 text-center">' + "<p>Current Temp: <p>" +'</div>';
-		
-		$('#weather-grid').html(newHTML);
+			newHTML += '<div class="col-sm-4 text-center weather-info"' + '<p>' + weatherIcon + iconDes + '<p>' + '</div>'; 
+			newHTML += '<div class="row">'
+			newHTML += '<div class="col-sm-12 text-center weather-info city"' + '<p>' + cityName + '<p>' + '</div>'; 
+			newHTML += '</div>'	
+			newHTML +=	'<div class="col-sm-12 text-center">' + "<p>Current Temp: <p>" +'</div>';
+			
+			$('#weather-grid').html(newHTML);
+
+
+			var shadeColor;
+			if(currTemp < 32){
+				shadeColor = '#D4F0FF';
+			}else if((currTemp >= 32) && (currTemp < 59)){
+				shadeColor = "#129793";
+			}else if((currTemp >= 59) && (currTemp < 75)){
+				shadeColor = "#7cfc00";
+			}else if((currTemp >= 75) && (currTemp < 90)){
+				shadeColor = "#FF6600";
+			}else{
+				shadeColor = '#E3170D';
+			}
+
 
 			function animate(current){
 				context.clearRect(0,0,500,500);
@@ -146,7 +159,7 @@ $(document).ready(function(){
 				context.fill();
 
 				context.lineWidth = 10;
-				context.strokeStyle = "#ff0000";
+				context.strokeStyle = shadeColor;
 				context.beginPath();
 				context.arc(155, 75, 70, Math.PI*1.5, (Math.PI*2 * current) + Math.PI*1.5);
 				context.stroke();
