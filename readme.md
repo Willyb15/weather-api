@@ -1,5 +1,4 @@
 #Weather App created using an API and the ol' HTML Canvas tag
-![alt text](ss.png "Description goes here")
 ### Retreived weather data from weathermap.org API
 ```js
 $(document).ready(function(){
@@ -58,4 +57,5 @@ $(document).ready(function(){
 		});
 ```
 ###Needs some styling love, but it's still pretty Sweet
+![alt text](ss.png "Description goes here")
 
