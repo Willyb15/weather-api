@@ -4,15 +4,15 @@
 }
 
 body{
-	background-image: url(http://openwalls.com/image/11539/yellow_flowers_field_1920x1200.jpg);
+	background-image: url(../flower.jpg);
 }
 
 .weather-box{
 
     background-color: #ffffff;
     border: 1px solid black;
-    opacity: 0.6;
-    filter: alpha(opacity=60);
+    opacity: 0.7;
+    filter: alpha(opacity=10);
 }
 
 
